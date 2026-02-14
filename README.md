@@ -36,6 +36,6 @@
 ## 5. MASTG (2 idées de tests)
 - Vérifier si les fichiers de préférences partagées contiennent des informations sensibles en clair (`/data/data/[package_name]/shared_prefs/`)
 - Analyser les logs de l'application avec `adb logcat` pour détecter des fuites d'informations sensibles pendant l'exécution
-## Remise à zéro AVD
+## 6.Remise à zéro AVD
 <img width="374" height="399" alt="image" src="https://github.com/user-attachments/assets/db3d1d8f-77d2-44b0-aebb-dff983c1aa2d" />
 
