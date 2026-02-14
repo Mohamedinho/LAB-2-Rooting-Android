@@ -99,4 +99,5 @@
 - Vérifier si les fichiers de préférences partagées contiennent des informations sensibles en clair (`/data/data/[package_name]/shared_prefs/`).
 - Analyser les logs de l'application avec `adb logcat` pour détecter des fuites d'informations sensibles pendant l'exécution.
 
-
+## 6.  Remise à zéro AVD
+<img width="374" height="399" alt="image" src="https://github.com/user-attachments/assets/24196ddd-528c-4960-a120-cbff07b0e15f" />
