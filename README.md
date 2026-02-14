@@ -15,45 +15,69 @@
 - **Importance :** Si le démarrage est compromis, toutes les protections ultérieures peuvent être contournées.
 
 #### Schéma simplifié Verified Boot / AVB
-┌─────────────────────────────────────────────────────────────────┐
-│                   ANDROID VERIFIED BOOT (AVB)                    │
-│                        CHAIN OF TRUST                            │
-└─────────────────────────────────────────────────────────────────┘
+# ANDROID VERIFIED BOOT (AVB)
+## Chain of Trust
 
-┌──────────────────────┐
-│      Boot ROM        │ ← Clé publique gravée (matériel)
-│     (Hardware)       │   [IMMUTABLE - FIXÉ EN USINE]
-└──────────┬───────────┘
-           │ ✓ Vérifie la signature
-           ↓
-┌──────────────────────┐
-│     Bootloader       │ ← Signé par le constructeur
-│                      │   [Locked / Unlocked]
-└──────────┬───────────┘
-           │ ✓ Vérifie la signature
-           ↓
-┌──────────────────────┐
-│     Boot Image       │ ← Kernel + Ramdisk
-│     (boot.img)       │
-└──────────┬───────────┘
-           │ ✓ Vérifie la signature (dm-verity)
-           ↓
-┌──────────────────────┐
-│  System Partition    │ ← Système Android
-│    (system.img)      │
-└──────────┬───────────┘
-           │
-           ↓
-┌─────────────────────────────────────────────────────────────────┐
-│                    RÉSULTAT DU DÉMARRAGE                         │
-├─────────────────────────────────────────────────────────────────┤
-│  🟢  GREEN  =  Chaîne vérifiée → Mode sécurisé (locked)         │
-│  🟠  ORANGE =  Modification détectée → Mode rooté (unlocked)    │
-│  🔴  RED    =  Échec de vérification → Démarrage bloqué         │
-└─────────────────────────────────────────────────────────────────┘
+---
+
+## 🔐 1️⃣ Boot ROM (Hardware)
+- **Clé publique gravée dans le matériel**
+- **IMMUTABLE – Fixé en usine**
+- ✅ Vérifie la signature du Bootloader
+
+---
+
+## 🔓 2️⃣ Bootloader
+- Signé par le constructeur
+- État : `Locked` / `Unlocked`
+- ✅ Vérifie la signature du Boot Image
+
+---
+
+## 🧩 3️⃣ Boot Image (`boot.img`)
+- Contient :
+  - Kernel
+  - Ramdisk
+- ✅ Vérifie l’intégrité via **dm-verity**
+
+---
+
+## 📦 4️⃣ System Partition (`system.img`)
+- Contient le système Android
+- Vérifiée par la chaîne de confiance
+
+---
+
+# 🚀 Résultat du Démarrage
+
+| Couleur | Signification | État |
+|----------|---------------|------|
+| 🟢 GREEN  | Chaîne vérifiée | Mode sécurisé (Locked) |
+| 🟠 ORANGE | Modification détectée | Mode rooté (Unlocked) |
+| 🔴 RED    | Échec de vérification | Démarrage bloqué |
+
+---
+
+## 🔗 Résumé de la Chaîne de Confiance
 
 
 
+
+
+## 🔍 Détail des niveaux de sécurité
+
+| Niveau | Composant | Protection | État |
+|--------|-----------|------------|------|
+| **1** | Boot ROM | Gravée hardware | 🔒 Immuable |
+| **2** | Bootloader | Signature OEM | 🔒 Locked / 🔓 Unlocked |
+| **3** | Boot Image | dm-verity | ✅ Vérifié |
+| **4** | System | AVB + dm-verity | ✅ Vérifié |
+
+## 🚦 Interprétation des codes couleur
+
+- 🟢 **GREEN** : Démarrage normal, chaîne de confiance intacte
+- 🟠 **ORANGE** : Bootloader déverrouillé, modifications possibles
+- 🔴 **RED** : Alerte de sécurité, démarrage bloqué
 > Chaque étape vérifie la signature de l’étape suivante pour garantir l’intégrité du système.
 
 ### Android Verified Boot (AVB)
