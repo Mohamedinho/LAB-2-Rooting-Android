@@ -20,35 +20,35 @@
 
 ---
 
-## 🔐 1️⃣ Boot ROM (Hardware)
+##  Boot ROM (Hardware)
 - **Clé publique gravée dans le matériel**
 - **IMMUTABLE – Fixé en usine**
-- ✅ Vérifie la signature du Bootloader
+-  Vérifie la signature du Bootloader
 
 ---
 
-## 🔓 2️⃣ Bootloader
+##  Bootloader
 - Signé par le constructeur
 - État : `Locked` / `Unlocked`
-- ✅ Vérifie la signature du Boot Image
+- Vérifie la signature du Boot Image
 
 ---
 
-## 🧩 3️⃣ Boot Image (`boot.img`)
+##  Boot Image (`boot.img`)
 - Contient :
   - Kernel
   - Ramdisk
-- ✅ Vérifie l’intégrité via **dm-verity**
+- Vérifie l’intégrité via **dm-verity**
 
 ---
 
-## 📦 4️⃣ System Partition (`system.img`)
+## System Partition (`system.img`)
 - Contient le système Android
 - Vérifiée par la chaîne de confiance
 
 ---
 
-# 🚀 Résultat du Démarrage
+# Résultat du Démarrage
 
 | Couleur | Signification | État |
 |----------|---------------|------|
@@ -56,15 +56,8 @@
 | 🟠 ORANGE | Modification détectée | Mode rooté (Unlocked) |
 | 🔴 RED    | Échec de vérification | Démarrage bloqué |
 
----
 
-## 🔗 Résumé de la Chaîne de Confiance
-
-
-
-
-
-## 🔍 Détail des niveaux de sécurité
+##  Détail des niveaux de sécurité
 
 | Niveau | Composant | Protection | État |
 |--------|-----------|------------|------|
