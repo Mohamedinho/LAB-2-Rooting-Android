@@ -15,7 +15,8 @@
 - **Importance :** Si le démarrage est compromis, toutes les protections ultérieures peuvent être contournées.
 
 #### Schéma simplifié Verified Boot / AVB
-<img width="997" height="517" alt="image" src="https://github.com/user-attachments/assets/d836698e-6a08-46d7-a258-61673111ed3e" />
+<img width="6367" height="1508" alt="process" src="https://github.com/user-attachments/assets/cca3a185-e734-4536-8ad9-9bbbebabad50" />
+
 
 
 > Chaque étape vérifie la signature de l’étape suivante pour garantir l’intégrité du système.
