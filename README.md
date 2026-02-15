@@ -38,9 +38,10 @@
 - Pas d’analyse réseau approfondie (TLS / MITM non testé)
 - Application simple (v1.0, fonctionnalités limitées)
 - Aucun test d’exploitation avancé réalisé
-- 
+
 ## app lancer 
-<img width="564" height="227" alt="image" src="https://github.com/user-attachments/assets/e86df989-fa0f-4605-a739-e1f7920fe53a" />
+<img width="1745" height="983" alt="image" src="https://github.com/user-attachments/assets/541c10a7-5290-4823-8a63-3c4124db5b9b" />
+
 
 ## adb root
 <img width="564" height="227" alt="image" src="https://github.com/user-attachments/assets/7c47ae74-e226-4b45-bd5d-db5b57fa69b0" />
@@ -171,3 +172,47 @@
 
 ## 6.  Remise à zéro AVD
 <img width="374" height="399" alt="image" src="https://github.com/user-attachments/assets/24196ddd-528c-4960-a120-cbff07b0e15f" />
+
+# CHECKLIST FINALE – LAB-2-Rooting-Android
+
+## 🔹 Phase PLAN (Préparation)
+| Élément | Statut |
+|----------|--------|
+| Périmètre écrit | ✅ Oui |
+| AVD neuf créé | ✅ Oui |
+| Application test installée | ✅ Oui |
+| 3 scénarios définis | ✅ Oui |
+| Versions Android / App notées | ✅ Oui |
+---
+## 🔹 Phase DO (Exécution contrôlée)
+ Élément | Statut |
+|----------|--------|
+| Tests réalisés sur environnement isolé | ✅ Oui |
+| Commandes ADB exécutées | ✅ Oui |
+| État Verified Boot vérifié | ✅ Oui |
+| Captures d’écran réalisées | ✅ Oui |
+---
+## 🔹 Phase CHECK (Vérification)
+| Élément | Statut |
+|----------|--------|
+| Observations factuelles notées | ✅ Oui |
+| Limites du test documentées | ✅ Oui |
+| Traçabilité complète | ✅ Oui |
+---
+## 🔹 Phase ACT (Nettoyage / Remise à zéro)
+| Élément | Statut |
+|----------|--------|
+| Données de test supprimées | ✅ Oui |
+| Reset AVD effectué (wipe) | ✅ Oui |
+| Preuve du reset incluse | ✅ Oui |
+| Rapport sauvegardé | ✅ Oui |
+| Aucun compte personnel utilisé | ✅ Oui |
+---
+## 🧾 Validation finale
+
+Méthodologie appliquée : **Plan – Do – Check – Act (PDCA)**  
+Environnement contrôlé et nettoyé après test.  
+Traçabilité complète assurée.
+
+Signature : Mohamed Douassi  
+Date : 14.02.2026
