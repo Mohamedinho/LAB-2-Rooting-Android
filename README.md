@@ -27,6 +27,7 @@
 
 ### Scénario 3 :l'application bien executer et lancer
 <img width="394" height="854" alt="image" src="https://github.com/user-attachments/assets/3e083264-962e-4eed-8430-18edec10cfb9" />
+
 ---
 ## 3️ Observations factuelles
 
