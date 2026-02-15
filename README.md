@@ -1,4 +1,74 @@
 # LAB-2-Rooting-Android
+# FICHE ENVIRONNEMENT – TRAÇABILITÉ TEST SÉCURITÉ ANDROID
+## 1️ Informations générales
+
+| Champ | Valeur |
+|-------|--------|
+| Date | 14.02.2026 |
+| Auteur | Mohamed Douassi |
+| Application testée | My_Application |
+| Version application | v1.0 |
+| Support utilisé | AVD Pixel 6 |
+| Type d’environnement | Émulateur (AOSP rootée) |
+| Version Android | Android 16 |
+| API Level | API 36 |
+| Objectif du test | Comprendre le processus de rooting et ses impacts sur la sécurité |
+| Données utilisées | Données fictives (aucune donnée réelle) |
+| Configuration réseau | Réseau isolé (Host-Only) |
+
+## 2 Scénarios testés
+### Scénario 1 :les app bien installer
+<img width="395" height="853" alt="image" src="https://github.com/user-attachments/assets/1ec4ff3a-9257-4d92-9b0c-f147bbb4eee2" />
+
+### Scénario 2:recherche d'une app
+<img width="392" height="851" alt="image" src="https://github.com/user-attachments/assets/663ddad0-3b23-4f2f-a340-02ff56a96bf2" />
+
+### Scénario 3 :l'application bien executer et lancer
+<img width="394" height="854" alt="image" src="https://github.com/user-attachments/assets/3e083264-962e-4eed-8430-18edec10cfb9" />
+
+## 3️ Observations factuelles
+- Bootloader : Déverrouillé
+- État Verified Boot : Orange (système modifié)
+- Environnement : Émulateur AOSP rooté
+- Aucune donnée réelle utilisée
+- Aucun trafic externe détecté (réseau isolé Host-Only)
+
+## 4️ Limites du test
+- Test effectué uniquement sur émulateur (pas sur appareil physique)
+- Pas d’analyse réseau approfondie (TLS / MITM non testé)
+- Application simple (v1.0, fonctionnalités limitées)
+- Aucun test d’exploitation avancé réalisé
+- 
+## app lancer 
+<img width="564" height="227" alt="image" src="https://github.com/user-attachments/assets/e86df989-fa0f-4605-a739-e1f7920fe53a" />
+
+## adb root
+<img width="564" height="227" alt="image" src="https://github.com/user-attachments/assets/7c47ae74-e226-4b45-bd5d-db5b57fa69b0" />
+
+- **Objectif :** Confirmer l'accès super-utilisateur.
+- **Résultat observé :**
+- Accès root activé avec succès.
+- Shell exécuté en mode root.
+  
+## resultat :getprop ro.boot.verifiedbootstate
+<img width="543" height="52" alt="image" src="https://github.com/user-attachments/assets/ebda1c86-9370-4ee3-adb3-656171f47d91" />
+
+- **Objectif :** Identifier l'état de sécurité du démarrage.
+- **Résultat observé :**
+- Valeur retournée : `orange`
+- Interprétation : Bootloader déverrouillé / système modifié (rooté).
+
+## 5️ Reset / Nettoyage environnement
+
+| Élément | Statut |
+|----------|--------|
+| Snapshot restauré | Oui |
+| Wipe effectué | Oui |
+| Appareil réinitialisé | Oui |
+
+## wipe data
+<img width="374" height="399" alt="image" src="https://github.com/user-attachments/assets/b72fd534-7cd6-4fd2-b098-e7c188f8a2c8" />
+
 # Rapport de Sécurité Android
 
 ## 1. Rooting Android
