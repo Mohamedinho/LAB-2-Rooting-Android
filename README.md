@@ -1,4 +1,5 @@
 # LAB-2-Rooting-Android
+```markdown
 # FICHE DE TRAÇABILITÉ – LABORATOIRE ROOTING ANDROID
 ## 1️ Informations générales
 
@@ -99,7 +100,7 @@
 ## Chain of Trust
 ### Version un peu plus visuelle (ASCII encadré)
 
-```markdown
+
 #### Schéma simplifié – Chaîne de confiance Verified Boot / AVB
 
 ┌──────────────┐
