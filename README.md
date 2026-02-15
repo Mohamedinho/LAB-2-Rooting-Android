@@ -100,10 +100,6 @@
 
 # ANDROID VERIFIED BOOT (AVB)
 ## Chain of Trust
-### Version un peu plus visuelle (ASCII encadré)
-
-
-#### Schéma simplifié – Chaîne de confiance Verified Boot / AVB
 ```
 ┌──────────────┐
 │  Boot ROM    │ 🔒 Clé publique gravée (Hardware)
@@ -124,6 +120,8 @@
 ┌──────────────┐
 │ Applications │
 └──────────────┘
+> Chaque composant vérifie cryptographiquement l’intégrité du suivant.  
+> Si une vérification échoue, le système peut passer en mode Orange ou bloquer le démarrage (Red).
 ```
 ---
 
@@ -163,6 +161,7 @@
 | 🟠 ORANGE | Modification détectée | Mode rooté (Unlocked) |
 | 🔴 RED    | Échec de vérification | Démarrage bloqué |
 
+---
 
 ##  Détail des niveaux de sécurité
 
@@ -173,7 +172,7 @@
 | **3** | Boot Image | dm-verity | ✅ Vérifié |
 | **4** | System | AVB + dm-verity | ✅ Vérifié |
 
-## 🚦 Interprétation des codes couleur
+##  Interprétation des codes couleur
 
 - 🟢 **GREEN** : Démarrage normal, chaîne de confiance intacte
 - 🟠 **ORANGE** : Bootloader déverrouillé, modifications possibles
