@@ -1,5 +1,5 @@
 # LAB-2-Rooting-Android
-```markdown
+
 # FICHE DE TRAÇABILITÉ – LABORATOIRE ROOTING ANDROID
 ## 1️ Informations générales
 
@@ -77,7 +77,9 @@
 
 ## a. wipe data
 <img width="374" height="399" alt="image" src="https://github.com/user-attachments/assets/b72fd534-7cd6-4fd2-b098-e7c188f8a2c8" />
+
 ---
+
 # RAPPORT D’ANALYSE DE SÉCURITÉ – ROOTING ANDROID
 
 ## 1. Rooting Android
@@ -102,7 +104,7 @@
 
 
 #### Schéma simplifié – Chaîne de confiance Verified Boot / AVB
-
+```
 ┌──────────────┐
 │  Boot ROM    │ 🔒 Clé publique gravée (Hardware)
 └──────┬───────┘
@@ -122,6 +124,7 @@
 ┌──────────────┐
 │ Applications │
 └──────────────┘
+```
 ---
 
 ##  Boot ROM (Hardware)
