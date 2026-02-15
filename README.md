@@ -1,5 +1,5 @@
 # LAB-2-Rooting-Android
-# FICHE ENVIRONNEMENT – TRAÇABILITÉ TEST SÉCURITÉ ANDROID
+# FICHE DE TRAÇABILITÉ – LABORATOIRE ROOTING ANDROID
 ## 1️ Informations générales
 
 | Champ | Valeur |
@@ -15,8 +15,9 @@
 | Objectif du test | Comprendre le processus de rooting et ses impacts sur la sécurité |
 | Données utilisées | Données fictives (aucune donnée réelle) |
 | Configuration réseau | Réseau isolé (Host-Only) |
-
+---
 ## 2 Scénarios testés
+
 ### Scénario 1 :les app bien installer
 <img width="395" height="853" alt="image" src="https://github.com/user-attachments/assets/1ec4ff3a-9257-4d92-9b0c-f147bbb4eee2" />
 
@@ -25,25 +26,30 @@
 
 ### Scénario 3 :l'application bien executer et lancer
 <img width="394" height="854" alt="image" src="https://github.com/user-attachments/assets/3e083264-962e-4eed-8430-18edec10cfb9" />
-
+---
 ## 3️ Observations factuelles
+
 - Bootloader : Déverrouillé
 - État Verified Boot : Orange (système modifié)
 - Environnement : Émulateur AOSP rooté
 - Aucune donnée réelle utilisée
 - Aucun trafic externe détecté (réseau isolé Host-Only)
-
+---
 ## 4️ Limites du test
+
 - Test effectué uniquement sur émulateur (pas sur appareil physique)
 - Pas d’analyse réseau approfondie (TLS / MITM non testé)
 - Application simple (v1.0, fonctionnalités limitées)
 - Aucun test d’exploitation avancé réalisé
+---
+## 5 Preuves visuelles incluses
+## a. app lancer 
 
-## app lancer 
 <img width="1745" height="983" alt="image" src="https://github.com/user-attachments/assets/541c10a7-5290-4823-8a63-3c4124db5b9b" />
 
 
-## adb root
+## b. adb root
+
 <img width="564" height="227" alt="image" src="https://github.com/user-attachments/assets/7c47ae74-e226-4b45-bd5d-db5b57fa69b0" />
 
 - **Objectif :** Confirmer l'accès super-utilisateur.
@@ -51,15 +57,16 @@
 - Accès root activé avec succès.
 - Shell exécuté en mode root.
   
-## resultat :getprop ro.boot.verifiedbootstate
+## c. resultat :getprop ro.boot.verifiedbootstate
+
 <img width="543" height="52" alt="image" src="https://github.com/user-attachments/assets/ebda1c86-9370-4ee3-adb3-656171f47d91" />
 
 - **Objectif :** Identifier l'état de sécurité du démarrage.
 - **Résultat observé :**
 - Valeur retournée : `orange`
 - Interprétation : Bootloader déverrouillé / système modifié (rooté).
-
-## 5️ Reset / Nettoyage environnement
+---
+## 6 Reset / Nettoyage environnement
 
 | Élément | Statut |
 |----------|--------|
@@ -67,12 +74,13 @@
 | Wipe effectué | Oui |
 | Appareil réinitialisé | Oui |
 
-## wipe data
+## a. wipe data
 <img width="374" height="399" alt="image" src="https://github.com/user-attachments/assets/b72fd534-7cd6-4fd2-b098-e7c188f8a2c8" />
-
-# Rapport de Sécurité Android
+---
+# RAPPORT D’ANALYSE DE SÉCURITÉ – ROOTING ANDROID
 
 ## 1. Rooting Android
+
 - Le root donne les privilèges super-utilisateur sur l’appareil.
 - Il modifie les protections et la confiance du système, permettant d’accéder à tout.
 - Très utile en laboratoire pour observer certains comportements, mais risqué si mal utilisé.
@@ -86,9 +94,33 @@
 - **Importance :** Si le démarrage est compromis, toutes les protections ultérieures peuvent être contournées.
 
 #### Schéma simplifié Verified Boot / AVB
+
 # ANDROID VERIFIED BOOT (AVB)
 ## Chain of Trust
+### Version un peu plus visuelle (ASCII encadré)
 
+```markdown
+#### Schéma simplifié – Chaîne de confiance Verified Boot / AVB
+
+┌──────────────┐
+│  Boot ROM    │ 🔒 Clé publique gravée (Hardware)
+└──────┬───────┘
+       ↓ Vérifie signature
+┌──────────────┐
+│ Bootloader   │ 🔓 Locked / Unlocked
+└──────┬───────┘
+       ↓ Vérifie signature
+┌──────────────┐
+│ Boot Image   │ Kernel + Ramdisk
+└──────┬───────┘
+       ↓ dm-verity / AVB
+┌──────────────┐
+│ System       │ Android OS
+└──────┬───────┘
+       ↓
+┌──────────────┐
+│ Applications │
+└──────────────┘
 ---
 
 ##  Boot ROM (Hardware)
@@ -178,35 +210,35 @@
 ## 🔹 Phase PLAN (Préparation)
 | Élément | Statut |
 |----------|--------|
-| Périmètre écrit | ✅ Oui |
-| AVD neuf créé | ✅ Oui |
-| Application test installée | ✅ Oui |
-| 3 scénarios définis | ✅ Oui |
-| Versions Android / App notées | ✅ Oui |
+| Périmètre écrit |  Oui |
+| AVD neuf créé |  Oui |
+| Application test installée |  Oui |
+| 3 scénarios définis |  Oui |
+| Versions Android / App notées |  Oui |
 ---
 ## 🔹 Phase DO (Exécution contrôlée)
  Élément | Statut |
 |----------|--------|
-| Tests réalisés sur environnement isolé | ✅ Oui |
-| Commandes ADB exécutées | ✅ Oui |
-| État Verified Boot vérifié | ✅ Oui |
-| Captures d’écran réalisées | ✅ Oui |
+| Tests réalisés sur environnement isolé |  Oui |
+| Commandes ADB exécutées |  Oui |
+| État Verified Boot vérifié |  Oui |
+| Captures d’écran réalisées |  Oui |
 ---
 ## 🔹 Phase CHECK (Vérification)
 | Élément | Statut |
 |----------|--------|
-| Observations factuelles notées | ✅ Oui |
-| Limites du test documentées | ✅ Oui |
-| Traçabilité complète | ✅ Oui |
+| Observations factuelles notées |  Oui |
+| Limites du test documentées |  Oui |
+| Traçabilité complète |  Oui |
 ---
 ## 🔹 Phase ACT (Nettoyage / Remise à zéro)
 | Élément | Statut |
 |----------|--------|
-| Données de test supprimées | ✅ Oui |
-| Reset AVD effectué (wipe) | ✅ Oui |
-| Preuve du reset incluse | ✅ Oui |
-| Rapport sauvegardé | ✅ Oui |
-| Aucun compte personnel utilisé | ✅ Oui |
+| Données de test supprimées |  Oui |
+| Reset AVD effectué (wipe) |  Oui |
+| Preuve du reset incluse |  Oui |
+| Rapport sauvegardé |  Oui |
+| Aucun compte personnel utilisé |  Oui |
 ---
 ## 🧾 Validation finale
 
